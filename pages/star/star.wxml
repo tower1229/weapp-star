@@ -1,0 +1,27 @@
+<view class="weui-panel">
+	<view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">请选择你的星座：</view>
+            <view class="weui-form-preview__value">
+            	<picker bindchange="pickerChange" value="{{index}}" range="{{array}}">
+				    <view class="picker">
+				      {{currentPick}}
+				    </view>
+				  </picker>
+            </view>
+        </view>
+    </view>
+    <view class="weui-article" wx:if="{{analyzeResult.title}}">
+    	<view class="weui-article__h1">{{analyzeResult.title}}</view>
+    	<view class="weui-article__p">{{analyzeResult.grade}}</view>
+    	<view class="weui-article__p">{{analyzeResult.content}}</view>
+    	<button class="mybtn" bindtap="mathch" type="primary">与12星座匹配</button>
+    </view>
+    <view class="weui-article" hidden="{{currentMatch!==currentPick}}">
+    	<view class="weui-article__section" wx:for="{{matchResult}}">
+			<view class="weui-article__h1">{{item.title}}</view>
+	    	<view class="weui-article__p">{{item.grade}}</view>
+	    	<view class="weui-article__p">{{item.content}}</view>
+    	</view>
+    </view>
+</view>
